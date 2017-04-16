@@ -29,6 +29,7 @@ vi .env.production
 sudo docker-compose run --rm web rails db:migrate
 sudo docker-compose run --rm web rails assets:precompile
 sudo docker-compose up -d
+sudo systemctl restart nginx
 echo 'now, you can access http://localhost:3000'
 echo 'push enter key to end'
 read Wait
