@@ -1,9 +1,9 @@
 #!/bin/sh
 
-curl 'https://codeload.github.com/tootsuite/mastodon/tar.gz/v1.1.2' > mastodon.tar.gz
+curl 'https://github.com/tootsuite/mastodon/archive/v1.2.tar.gz' > mastodon.tar.gz
 # mv v1.1.2.tar.gz mastodon.tar.gz
 tar -zxvf mastodon.tar.gz
-mv mastodon-1.1.2 mastodon
+mv mastodon-1.2 mastodon
 cd mastodon
 sudo yum install -y docker
 sudo systemctl start docker
@@ -29,7 +29,6 @@ vi .env.production
 sudo docker-compose run --rm web rails db:migrate
 sudo docker-compose run --rm web rails assets:precompile
 sudo docker-compose up -d
-sudo systemctl restart nginx
 echo 'now, you can access http://localhost:3000'
 echo 'push enter key to end'
 read Wait
